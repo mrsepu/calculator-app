@@ -1,0 +1,169 @@
+:root {
+    /* Backgrounds */
+    --mainBackground: hsl(0, 0%, 90%);
+    --toggleAndKeypadBackground: hsl(0, 5%, 81%);
+    --screenBackground: hsl(0, 0%, 93%);
+
+    /* Keys */
+    --keyBackgroundResDel: hsl(185, 42%, 37%);
+    --keyShadowResDel: hsl(185, 58%, 25%);
+    --keyBackgroundTogIqual: hsl(25, 98%, 40%);
+    --keyShadowTogIgual: hsl(25, 99%, 27%);
+    --keyBackground: hsl(45, 7%, 89%);
+    --keyShadow: hsl(35, 11%, 61%);
+
+    /* Text */
+    --text1: hsl(60, 10%, 19%);
+    --text2: #fff;
+    --text3: hsl(60, 10%, 19%);
+}
+
+body {
+    background-color: var(--mainBackground);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    max-width: 500px;
+    color: var(--text2);
+    text-transform: uppercase;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+header {
+    color: var(--text3);
+    font-weight: bold;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.selector {
+    display: flex;
+    justify-content: space-around;
+}
+
+.selector p {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.screen input {
+    background-color: var(--screenBackground);
+    width: 100%;
+    height: 90px;
+    margin: 25px 0;
+    border: none;
+    border-radius: 10px;
+    color: var(--text3);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.keypad {
+    background-color: var(--toggleAndKeypadBackground);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.keypad button {
+    margin: 5px;
+    height: 55px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--keyBackground);
+    color: var(--text1);
+    box-shadow: 0 4px var(--keyShadow);
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.resdel {
+    background-color: var(--keyBackgroundResDel)!important;
+    color: var(--text2)!important;
+    font-size: 1rem!important;    
+    box-shadow: 0 4px var(--keyShadowResDel)!important;
+}
+
+.equal {
+    background-color: var(--keyBackgroundTogIqual)!important;
+    color: var(--text2)!important;
+    box-shadow: 0 4px var(--keyShadowTogIgual)!important;
+}
+
+/* Custom Range */
+input[type=range] {
+    -webkit-appearance: none; 
+    width: 100%; 
+    background: transparent;
+}
+  
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+  
+input[type=range]:focus {
+    outline: none; 
+}
+  
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+}
+
+.range {
+    background-color: var(--toggleAndKeypadBackground);
+    border-radius: 16px;
+    padding: 0 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--keyBackgroundTogIqual);
+    cursor: pointer;
+    margin-top: 5px;
+} 
+  
+input[type=range]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--keyBackgroundTogIqual);
+    cursor: pointer;
+}
+
+input[type=range]::-ms-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: var(--keyBackgroundTogIqual);
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+padding: 2%;
+margin-top: auto;
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+    color: var(--text3);
+}
+.attribution a { 
+    color: var(--keyBackgroundTogIqual); 
+}
