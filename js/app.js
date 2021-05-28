@@ -25,6 +25,7 @@ $('button').click(function () {
     } else if(this.innerText.toUpperCase() === 'DEL') {
         del();
     } 
+    addAnimation(this.innerText);
     this.blur();
 })
 
@@ -45,6 +46,7 @@ $(document).keydown(function(e) {
     } else if (e.key.toUpperCase() ==='BACKSPACE') {
         del();
     }
+    addAnimation(e.key);
 })
 
 function valid (input) {
@@ -188,6 +190,31 @@ function del () {
     $('#screen').val(value);
 }
 
+function addAnimation(currentKey) {
+    let activeButton = '';
+    if (currentKey === '+') {
+        activeButton = document.querySelector(".btnadd");
+    } else if (currentKey === '-') { 
+        activeButton = document.querySelector(".btnres");
+    } else if (currentKey === 'X' || currentKey === '*') { 
+        activeButton = document.querySelector(".btnmul");
+    } else if (currentKey === '/') { 
+        activeButton = document.querySelector(".btndiv");
+    } else if (currentKey === '=' || currentKey === 'Enter') {
+        activeButton = document.querySelector(".btnequ");
+    } else if(currentKey === 'RESET' || currentKey === 'Escape') {
+        activeButton = document.querySelector(".btnreset");
+    } else if(currentKey === 'DEL' || currentKey === 'Backspace') {
+    activeButton = document.querySelector(".btndel");
+    } else {
+    activeButton = document.querySelector(".btn" + currentKey.toLowerCase());
+    }    
+    activeButton.classList.add('pressed');
+    setTimeout(()=>{
+        activeButton.classList.remove('pressed');
+    }, 100);
+}
+
 //Theme
 const r = document.querySelector(':root');
 const themeSelector=document.querySelector('input[type=range]')
@@ -197,6 +224,12 @@ themeSelector.addEventListener ('input' , () => {
 
 function setTheme(theme) {
     /* Backgorunds */
+    /* if(theme==='1') {
+        r.style.setProperty('--mainBackground', 'hsl(222, 26%, 31%)');
+    } else {
+        r.style.setProperty('--mainBackground', theme==='2' ? 'hsl(0, 0%, 90%)' : 'hsl(268, 75%, 9%)');  
+    } */
+
     r.style.setProperty('--mainBackground', theme==='1' ? 'hsl(222, 26%, 31%)' : theme==='2' ? 'hsl(0, 0%, 90%)' : 'hsl(268, 75%, 9%)');   
     r.style.setProperty('--toggleAndKeypadBackground', theme==='1' ? 'hsl(223, 31%, 20%)' : theme==='2' ? 'hsl(0, 5%, 81%)' : 'hsl(268, 71%, 12%)');   
     r.style.setProperty('--screenBackground', theme==='1' ? 'hsl(224, 36%, 15%)' : theme==='2' ? 'hsl(0, 0%, 93%)' : 'hsl(268, 71%, 12%)');  
