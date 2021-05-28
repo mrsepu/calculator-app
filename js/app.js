@@ -193,26 +193,43 @@ function del () {
 function addAnimation(currentKey) {
     let activeButton = '';
     if (currentKey === '+') {
-        activeButton = document.querySelector(".btnadd");
+        activeButton = $(".btnadd");
+        $('button').removeClass('pressed');
+        activeButton.addClass('pressed');
     } else if (currentKey === '-') { 
-        activeButton = document.querySelector(".btnres");
+        activeButton = $(".btnres");
+        $('button').removeClass('pressed');
+        activeButton.addClass('pressed');
     } else if (currentKey === 'X' || currentKey === '*') { 
-        activeButton = document.querySelector(".btnmul");
+        activeButton = $(".btnmul");
+        $('button').removeClass('pressed');
+        activeButton.addClass('pressed');
     } else if (currentKey === '/') { 
-        activeButton = document.querySelector(".btndiv");
+        activeButton = $(".btndiv");
+        $('button').removeClass('pressed');
+        activeButton.addClass('pressed');
     } else if (currentKey === '=' || currentKey === 'Enter') {
-        activeButton = document.querySelector(".btnequ");
+        activeButton = $(".btnequ");
+        $('button').removeClass('pressed');
     } else if(currentKey === 'RESET' || currentKey === 'Escape') {
-        activeButton = document.querySelector(".btnreset");
+        activeButton = $(".btnreset");
+        $('button').removeClass('pressed');
     } else if(currentKey === 'DEL' || currentKey === 'Backspace') {
-    activeButton = document.querySelector(".btndel");
-    } else {
-    activeButton = document.querySelector(".btn" + currentKey.toLowerCase());
+        activeButton = $(".btndel");
+        $('button').removeClass('pressed');
+    } else if(currentKey === '.') {
+        activeButton = $(".btndot");
+        $('button').removeClass('pressed');
+    }else {
+        $('button').removeClass('pressed');
+        activeButton = $(".btn" + currentKey.toLowerCase());
     }    
-    activeButton.classList.add('pressed');
-    setTimeout(()=>{
-        activeButton.classList.remove('pressed');
-    }, 100);
+    if (currentKey !== '+' && currentKey !== '-' && currentKey !== '*' && currentKey !== 'X' && currentKey !== '/') {
+        activeButton.addClass('pressed');
+        setTimeout(()=>{
+            activeButton.removeClass('pressed');
+        }, 100);
+    }
 }
 
 //Theme
