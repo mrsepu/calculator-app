@@ -99,6 +99,11 @@ header {
     box-shadow: 0 4px var(--keyShadowTogIgual)!important;
 }
 
+.pressed {
+    box-shadow: 0 3px 4px 0 #DBEDF3;
+    opacity: 0.5;
+}
+
 /* Custom Range */
 input[type=range] {
     -webkit-appearance: none; 
