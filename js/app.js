@@ -20,7 +20,7 @@ $('button').click(function () {
         divide();
     } else if (this.innerText === '=' || this.innerText === 'Enter') {
         equal();
-    } else if(this.innerText.toUpperCase() === 'RESET') {
+    } else if(this.innerText.toUpperCase() === 'RESET' || this.innerText.toUpperCase() === 'REINICIAR') {
        reset();
     } else if(this.innerText.toUpperCase() === 'DEL') {
         del();
